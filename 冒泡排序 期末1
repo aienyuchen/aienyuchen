@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    int a[3][3] = {0}; 
+    
+    cout << "请输入九个数字";
+    
+    for(int m = 0; m < 3; m++){
+        for(int n = 0; n < 3; n++){
+            cin >> a[m][n];
+        }
+    }
+    
+    //paixu(a);
+    
+    for(int m = 0; m < 3; m++){
+        for(int n = 0; n < 3; n++){
+            cout << a[m][n];
+        }
+        cout << endl; }
+    
+    int k[9];
+    
+    k[0] = a[0][0];
+    k[1] = a[0][1];
+    k[2] = a[0][2];
+    k[3] = a[1][0];
+    k[4] = a[1][1];
+    k[5] = a[1][2];
+    k[6] = a[2][0];
+    k[7] = a[2][1];
+    k[8] = a[2][2];
+    //开始升序排序
+    
+    for(int i = 0; i < 9-1; i++){
+        for(int j = 0; j < 9-i-1; j++){
+            if(k[j] > k[j+1]){
+                int temp = k[j+1];
+                k[j+1] = k[j];
+                k[j] = temp;
+            }
+        }
+    }
+    a[0][0] = k[0];
+    a[0][1] = k[1];
+    a[0][2] = k[2];
+    a[1][0] = k[3];
+    a[1][1] = k[4];
+    a[1][2] = k[5];
+    a[2][0] = k[6];
+    a[2][1] = k[7];
+    a[2][2] = k[8];
+    //输出
+    cout << a[0][0] << a[0][1] << a[0][2]<<endl;
+    cout << a[1][2] << a[1][1] << a[1][0]<<endl;
+    cout << a[2][0] << a[2][1] << a[2][2]<<endl;
+}
